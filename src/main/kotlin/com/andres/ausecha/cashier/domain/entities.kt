@@ -45,15 +45,3 @@ data class Inventory(
     val product: Product,
     var quantity: Int
 )
-
-@Repository
-interface clientRepository: CrudRepository<Client, UUID>
-
-@Repository
-interface orderRepository: CrudRepository<Order, UUID>
-
-@Repository
-interface productRepository: CrudRepository<Product, UUID>
-
-@Repository
-interface inventoryRepository: CrudRepository<Inventory, UUID>

@@ -1,13 +1,13 @@
 package com.andres.ausecha.cashier.business
 
 import com.andres.ausecha.cashier.domain.Product
-import com.andres.ausecha.cashier.domain.productRepository
+import com.andres.ausecha.cashier.domain.ProductRepository
 import org.springframework.stereotype.Service
 import java.util.UUID
 
 @Service
 class ProductService(
-    val productRepository: productRepository
+    val productRepository: ProductRepository
 ) {
     fun calculatePrice(products: List<Product>): Long = products
         .map { it.price }

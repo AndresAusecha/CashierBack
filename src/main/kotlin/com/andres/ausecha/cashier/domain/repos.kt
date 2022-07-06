@@ -1,21 +1,21 @@
 package com.andres.ausecha.cashier.domain
 
-import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
+import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
 import java.util.*
 
 @Repository
-interface ClientRepository: JpaRepository<Client, UUID>
+interface ClientRepository: CrudRepository<Client, UUID>
 
 @Repository
-interface ProductRepository: JpaRepository<Product, UUID>
+interface ProductRepository: CrudRepository<Product, UUID>
 
 @Repository
-interface OrderRepository: JpaRepository<Order, UUID>
+interface OrderRepository: CrudRepository<Order, UUID>
 
 @Repository
-interface InventoryRepository: JpaRepository<Inventory, UUID> {
+interface InventoryRepository: CrudRepository<Inventory, UUID> {
     @Query("SELECT I from Inventory I WHERE I.id IN :productIds")
     fun findAllByProductIds(productIds: List<UUID>): List<Inventory>
 }
